@@ -57,8 +57,8 @@ export const toolboxItems: ToolboxItem[] = [
   { id: 'work-1', type: 'Homework', category: 'Assigned Work', title: 'Homework', icon: 'book-text' },
   { id: 'work-2', type: 'Essay', category: 'Assigned Work', title: 'Essay', icon: 'pen-tool' },
   { id: 'work-3', type: 'Project', category: 'Assigned Work', title: 'Project', icon: 'file-check' },
-  { id: 'assess-1', type: 'Quizzes', category: 'Assessments', title: 'Quizzes', icon: 'school' },
-  { id: 'assess-2', type: 'Exams', category: 'Assessments', title: 'Exams', icon: 'graduation-cap' }
+  { id: 'assess-1', type: 'Quizzes', category: 'Assessments', title: 'Quiz', icon: 'school' },
+  { id: 'assess-2', type: 'Exams', category: 'Assessments', title: 'Exam', icon: 'graduation-cap' }
 ];
 
 // Array of days of the week
