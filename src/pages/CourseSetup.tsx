@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import Navbar from '@/components/Navbar';
@@ -220,8 +221,8 @@ const CourseSetup = () => {
             ))}
           </div>
           
-          {/* Right column: Course toolbox or trash bin - Now with sticky positioning */}
-          <div className="w-1/4 sticky top-24 self-start">
+          {/* Right column: Course toolbox or trash bin - Now with sticky positioning aligned to first week */}
+          <div className="w-1/4 sticky self-start" style={{ top: '9.5rem' }}>
             <CourseToolbox 
               toolboxItems={toolboxItems} 
               isDraggingItem={isDraggingItem} 
