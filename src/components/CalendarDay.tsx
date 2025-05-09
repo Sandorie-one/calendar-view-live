@@ -9,9 +9,18 @@ interface CalendarDayProps {
   date: Date;
   items: ToolboxItem[];
   onDrop: (item: ToolboxItem) => void;
+  onItemDragStart: (item: ToolboxItem) => void;
+  onItemRemove: (itemId: string) => void;
 }
 
-const CalendarDay: React.FC<CalendarDayProps> = ({ day, date, items, onDrop }) => {
+const CalendarDay: React.FC<CalendarDayProps> = ({ 
+  day, 
+  date, 
+  items, 
+  onDrop, 
+  onItemDragStart, 
+  onItemRemove 
+}) => {
   const [isActive, setIsActive] = React.useState(false);
   
   const formatDate = (date: Date): string => {
@@ -37,6 +46,13 @@ const CalendarDay: React.FC<CalendarDayProps> = ({ day, date, items, onDrop }) =
     } catch (error) {
       console.error('Failed to parse dropped item:', error);
     }
+  };
+
+  const handleItemDragStart = (e: React.DragEvent, item: ToolboxItem) => {
+    e.stopPropagation();
+    e.dataTransfer.setData('application/json', JSON.stringify(item));
+    e.dataTransfer.effectAllowed = 'move';
+    onItemDragStart(item);
   };
 
   const getIcon = (type: string) => {
@@ -77,7 +93,9 @@ const CalendarDay: React.FC<CalendarDayProps> = ({ day, date, items, onDrop }) =
         {items.map((item, index) => (
           <div 
             key={`${item.id}-${index}`} 
-            className="text-xs p-1 rounded bg-opacity-10 flex items-center gap-1"
+            className="text-xs p-1 rounded bg-opacity-10 flex items-center gap-1 cursor-grab"
+            draggable
+            onDragStart={(e) => handleItemDragStart(e, item)}
             style={{
               backgroundColor: 
                 item.category === 'Lectures' 

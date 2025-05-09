@@ -2,13 +2,21 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ToolboxItem } from '@/components/WeekModule';
-import { BookOpen, Video, BookText, PenTool, FileCheck, School, GraduationCap } from 'lucide-react';
+import { BookOpen, Video, BookText, PenTool, FileCheck, School, GraduationCap, Trash } from 'lucide-react';
 
 interface CourseToolboxProps {
   toolboxItems: ToolboxItem[];
+  isDraggingItem: boolean;
+  onTrashDrop: (item: ToolboxItem) => void;
 }
 
-const CourseToolbox: React.FC<CourseToolboxProps> = ({ toolboxItems }) => {
+const CourseToolbox: React.FC<CourseToolboxProps> = ({ 
+  toolboxItems, 
+  isDraggingItem, 
+  onTrashDrop 
+}) => {
+  const [isTrashActive, setIsTrashActive] = React.useState(false);
+
   const getIcon = (type: string) => {
     switch (type) {
       case 'In-Person Lecture':
@@ -35,6 +43,29 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({ toolboxItems }) => {
     e.dataTransfer.effectAllowed = 'copy';
   };
 
+  const handleDragOver = (e: React.DragEvent) => {
+    if (isDraggingItem) {
+      e.preventDefault();
+      setIsTrashActive(true);
+    }
+  };
+
+  const handleDragLeave = () => {
+    setIsTrashActive(false);
+  };
+
+  const handleTrashDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsTrashActive(false);
+    
+    try {
+      const item = JSON.parse(e.dataTransfer.getData('application/json'));
+      onTrashDrop(item);
+    } catch (error) {
+      console.error('Failed to parse dropped item:', error);
+    }
+  };
+
   const groupedItems = toolboxItems.reduce((acc, item) => {
     if (!acc[item.category]) {
       acc[item.category] = [];
@@ -55,6 +86,26 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({ toolboxItems }) => {
         return 'text-gray-700';
     }
   };
+
+  if (isDraggingItem) {
+    return (
+      <Card
+        className={`transition-all ${isTrashActive ? 'bg-red-50 border-red-300' : ''}`}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleTrashDrop}
+      >
+        <CardContent className="flex flex-col items-center justify-center py-10">
+          <Trash 
+            className={`h-16 w-16 ${isTrashActive ? 'text-red-500' : 'text-gray-400'}`} 
+          />
+          <p className={`mt-4 font-medium ${isTrashActive ? 'text-red-500' : 'text-gray-600'}`}>
+            Drop here to remove
+          </p>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card>

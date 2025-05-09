@@ -18,6 +18,8 @@ interface WeekModuleProps {
   chapters: string[];
   learningObjectives: string[];
   onDrop: (dayIndex: number, weekIndex: number) => (item: ToolboxItem) => void;
+  onItemDragStart: (item: ToolboxItem) => void;
+  onItemRemove: (key: string, itemId: string) => void;
   savedItems: Record<string, ToolboxItem[]>;
 }
 
@@ -28,6 +30,8 @@ const WeekModule: React.FC<WeekModuleProps> = ({
   chapters,
   learningObjectives,
   onDrop,
+  onItemDragStart,
+  onItemRemove,
   savedItems
 }) => {
   const formatDate = (date: Date): string => {
@@ -49,6 +53,11 @@ const WeekModule: React.FC<WeekModuleProps> = ({
 
   const weekDates = getWeekDates();
   const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+  const handleItemRemove = (dayIndex: number) => (itemId: string) => {
+    const key = `week-${weekNumber}-day-${dayIndex}`;
+    onItemRemove(key, itemId);
+  };
 
   return (
     <Card className={`mb-6 week-module-${weekNumber}`}>
@@ -82,6 +91,8 @@ const WeekModule: React.FC<WeekModuleProps> = ({
               date={date}
               items={savedItems[`week-${weekNumber}-day-${dayIndex}`] || []}
               onDrop={onDrop(dayIndex, weekNumber)}
+              onItemDragStart={onItemDragStart}
+              onItemRemove={handleItemRemove(dayIndex)}
             />
           ))}
         </div>
