@@ -17,3 +17,5 @@ export interface DragSourceState {
   key: string;
   itemId: string;
 }
+
+export type CourseStructureType = 'different' | 'same';

@@ -14,8 +14,8 @@ export function useCourseCalendar() {
   const [dragSource, setDragSource] = useState<DragSourceState | null>(null);
 
   // Handler for dropping items into calendar days
-  const handleDrop = (dayIndex: number, weekIndex: number) => (item: ToolboxItem) => {
-    const key = `week-${weekIndex}-day-${dayIndex}`;
+  const handleDrop = (dayIndex: number, weekIndex: number, customKey?: string) => (item: ToolboxItem) => {
+    const key = customKey || `week-${weekIndex}-day-${dayIndex}`;
     
     // If we're dragging from another calendar day
     if (isDraggingItem && dragSource) {
@@ -53,9 +53,13 @@ export function useCourseCalendar() {
         };
       });
       
+      const dayName = customKey?.includes('generic') 
+        ? daysOfWeek[dayIndex]
+        : daysOfWeek[dayIndex];
+        
       toast({
         title: "Item added",
-        description: `${item.title} added to ${daysOfWeek[dayIndex]}.`,
+        description: `${item.title} added to ${dayName}.`,
       });
     }
     
