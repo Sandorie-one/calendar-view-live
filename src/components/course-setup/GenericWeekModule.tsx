@@ -46,6 +46,7 @@ const GenericWeekModule: React.FC<GenericWeekModuleProps> = ({
               onDrop={onDrop(dayIndex)}
               onItemDragStart={onItemDragStart}
               onItemRemove={handleItemRemove(dayIndex)}
+              showDate={false} // Add this prop to hide date
             />
           ))}
         </div>

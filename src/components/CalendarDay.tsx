@@ -11,6 +11,7 @@ interface CalendarDayProps {
   onDrop: (item: ToolboxItem) => void;
   onItemDragStart: (item: ToolboxItem) => void;
   onItemRemove: (itemId: string) => void;
+  showDate?: boolean; // Optional prop to show/hide date
 }
 
 const CalendarDay: React.FC<CalendarDayProps> = ({ 
@@ -19,7 +20,8 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
   items, 
   onDrop, 
   onItemDragStart, 
-  onItemRemove 
+  onItemRemove,
+  showDate = true // Default to showing date
 }) => {
   const [isActive, setIsActive] = React.useState(false);
   
@@ -87,7 +89,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       onDrop={handleDrop}
     >
       <div className="text-xs font-medium">{day}</div>
-      <div className="text-xs text-gray-500 mb-2">{formatDate(date)}</div>
+      {showDate && <div className="text-xs text-gray-500 mb-2">{formatDate(date)}</div>}
       
       <div className="space-y-1">
         {items.map((item, index) => (
