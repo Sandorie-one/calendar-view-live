@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,18 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				pearson: {
+					purple: '#1E0C4C',
+					darkpurple: '#170732',
+					magenta: '#9B26B6',
+					lightpurple: '#9B87F5',
+					blue: '#3E8DDD',
+					teal: '#37B1BF',
+					green: '#4CAF50',
+					orange: '#FF9800',
+					red: '#F44336',
+					yellow: '#FFEB3B',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
