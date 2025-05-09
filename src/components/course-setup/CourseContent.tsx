@@ -1,0 +1,63 @@
+
+import React from 'react';
+import WeekModule from '@/components/WeekModule';
+import CourseToolbox from '@/components/CourseToolbox';
+import { CourseWeek } from '@/types/course';
+import { ToolboxItem } from '@/components/WeekModule';
+
+interface CourseContentProps {
+  courseWeeks: CourseWeek[];
+  toolboxItems: ToolboxItem[];
+  savedItems: Record<string, ToolboxItem[]>;
+  isDraggingItem: boolean;
+  onDrop: (dayIndex: number, weekIndex: number) => (item: ToolboxItem) => void;
+  onItemDragStart: (item: ToolboxItem) => void;
+  onItemRemove: (key: string, itemId: string) => void;
+  onTrashDrop: (item: ToolboxItem) => void;
+}
+
+const CourseContent: React.FC<CourseContentProps> = ({
+  courseWeeks,
+  toolboxItems,
+  savedItems,
+  isDraggingItem,
+  onDrop,
+  onItemDragStart,
+  onItemRemove,
+  onTrashDrop
+}) => {
+  return (
+    <div className="flex gap-6 relative">
+      {/* Left column: Course weeks */}
+      <div className="w-3/4">
+        <h2 className="text-xl font-bold mb-4 text-pearson-purple">George's Chemistry 101 Course</h2>
+        
+        {courseWeeks.map((week) => (
+          <WeekModule
+            key={week.weekNumber}
+            weekNumber={week.weekNumber}
+            startDate={week.startDate}
+            endDate={week.endDate}
+            chapters={week.chapters}
+            learningObjectives={week.learningObjectives}
+            onDrop={onDrop}
+            onItemDragStart={onItemDragStart}
+            onItemRemove={onItemRemove}
+            savedItems={savedItems}
+          />
+        ))}
+      </div>
+      
+      {/* Right column: Course toolbox or trash bin - Now with sticky positioning aligned to first week */}
+      <div className="w-1/4 sticky self-start" style={{ top: '9.5rem' }}>
+        <CourseToolbox 
+          toolboxItems={toolboxItems} 
+          isDraggingItem={isDraggingItem} 
+          onTrashDrop={onTrashDrop} 
+        />
+      </div>
+    </div>
+  );
+};
+
+export default CourseContent;
