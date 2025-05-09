@@ -111,6 +111,7 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
     <Card>
       <CardHeader className="pb-2">
         <CardTitle>Course Toolbox</CardTitle>
+        <p className="text-sm text-gray-600">Drag your course items into the calendar to define your course's structure</p>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
