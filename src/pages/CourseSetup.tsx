@@ -11,6 +11,9 @@ const CourseSetup = () => {
   const steps = ["Upload Syllabus", "Set Up Course Structure", "Define Exams", "Create Assignments", "Review"];
   const currentStep = 1; // 0-based index, so this is the second step
   
+  // Days of week array needed for the error fix
+  const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  
   // Course data
   const courseWeeks = [
     {
@@ -196,7 +199,7 @@ const CourseSetup = () => {
           </p>
         </div>
         
-        <div className="flex gap-6">
+        <div className="flex gap-6 relative">
           {/* Left column: Course weeks */}
           <div className="w-3/4">
             <h2 className="text-xl font-bold mb-4 text-pearson-purple">George's Chemistry 101 Course</h2>
@@ -217,8 +220,8 @@ const CourseSetup = () => {
             ))}
           </div>
           
-          {/* Right column: Course toolbox or trash bin */}
-          <div className="w-1/4">
+          {/* Right column: Course toolbox or trash bin - Now with sticky positioning */}
+          <div className="w-1/4 sticky top-24 self-start">
             <CourseToolbox 
               toolboxItems={toolboxItems} 
               isDraggingItem={isDraggingItem} 
