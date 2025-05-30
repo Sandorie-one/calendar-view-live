@@ -17,21 +17,24 @@ const CourseInfoBanner = () => {
   };
 
   return (
-    <div className="bg-nav-bg -mx-4 px-4 pt-4 pb-6">
-      <div className="text-center">
-        <div className="space-y-1">
-          <p className="text-nav-font font-plus-jakarta text-base">
-            Section title: {courseInfo.title}
-          </p>
-          <p className="text-nav-font font-plus-jakarta text-base">
-            Section code: {courseInfo.section}
-          </p>
-          <p className="text-nav-font font-plus-jakarta text-base">
-            Course location: {courseInfo.location}
-          </p>
-          <p className="text-nav-font font-plus-jakarta text-base">
-            Dates: {formatDateRange(courseInfo.startDate, courseInfo.endDate)}
-          </p>
+    <div className="bg-nav-bg w-full">
+      <div className="container px-4 py-4">
+        <div className="text-center">
+          <div className="space-y-1">
+            <p className="text-nav-font font-plus-jakarta">
+              <span className="text-lg font-semibold">Section title: </span>
+              <span className="text-xl font-bold">{courseInfo.title}</span>
+            </p>
+            <p className="text-nav-font font-plus-jakarta text-sm font-medium">
+              Section code: {courseInfo.section}
+            </p>
+            <p className="text-nav-font font-plus-jakarta text-sm font-medium">
+              Course location: {courseInfo.location}
+            </p>
+            <p className="text-nav-font font-plus-jakarta text-sm font-medium">
+              Dates: {formatDateRange(courseInfo.startDate, courseInfo.endDate)}
+            </p>
+          </div>
         </div>
       </div>
     </div>
