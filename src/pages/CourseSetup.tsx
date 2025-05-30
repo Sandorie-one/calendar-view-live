@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
+import CourseInfoBanner from '@/components/course-setup/CourseInfoBanner';
 import CourseHeader from '@/components/course-setup/CourseHeader';
 import CourseContent from '@/components/course-setup/CourseContent';
 import CourseNavigation from '@/components/course-setup/CourseNavigation';
@@ -33,6 +34,7 @@ const CourseSetup = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <CourseInfoBanner />
       
       <div className="container px-4 py-4 flex-1">
         <CourseHeader />

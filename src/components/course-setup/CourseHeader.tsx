@@ -1,15 +1,11 @@
 
 import React from 'react';
-import CourseInfoBanner from './CourseInfoBanner';
 
 const CourseHeader = () => {
   return (
-    <div className="mb-4 -mt-4">
-      {/* Course information banner */}
-      <CourseInfoBanner />
-      
+    <div className="mb-4">
       {/* Page title and instructions */}
-      <div className="mb-4 mt-6">
+      <div className="mb-4">
         <h1 className="text-2xl font-semibold text-nav-font mb-2 font-plus-jakarta">
           Let's set up the structure of your course
         </h1>
