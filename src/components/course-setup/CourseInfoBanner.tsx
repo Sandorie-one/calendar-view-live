@@ -22,17 +22,20 @@ const CourseInfoBanner = () => {
         <div className="text-center">
           <div className="space-y-1">
             <p className="text-nav-font font-plus-jakarta">
-              <span className="text-lg font-semibold">Section title: </span>
+              <span className="text-lg font-semibold">Course: </span>
               <span className="text-xl font-bold">{courseInfo.title}</span>
             </p>
             <p className="text-nav-font font-plus-jakarta text-sm font-medium">
-              Section code: {courseInfo.section}
+              Section: {courseInfo.section}
             </p>
             <p className="text-nav-font font-plus-jakarta text-sm font-medium">
-              Course location: {courseInfo.location}
+              Location: {courseInfo.location}
             </p>
             <p className="text-nav-font font-plus-jakarta text-sm font-medium">
-              Dates: {formatDateRange(courseInfo.startDate, courseInfo.endDate)}
+              Instructor: {courseInfo.instructor}
+            </p>
+            <p className="text-nav-font font-plus-jakarta text-sm font-medium">
+              Term: {formatDateRange(courseInfo.startDate, courseInfo.endDate)}
             </p>
           </div>
         </div>
