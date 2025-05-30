@@ -68,7 +68,7 @@ const CourseContent: React.FC<CourseContentProps> = ({
         </div>
         
         {/* Right column: Course toolbox or trash bin */}
-        <div className="w-1/4 sticky self-start" style={{ top: '9.5rem' }}>
+        <div className="w-1/4 sticky self-start mt-10" style={{ top: '9.5rem' }}>
           <CourseToolbox 
             toolboxItems={toolboxItems} 
             isDraggingItem={isDraggingItem} 
