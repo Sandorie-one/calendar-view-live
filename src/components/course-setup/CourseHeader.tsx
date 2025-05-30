@@ -1,13 +1,12 @@
 
 import React from 'react';
-import ProgressStepper from '@/components/ProgressStepper';
-import { setupSteps, currentSetupStep } from '@/data/courseData';
+import CourseInfoBanner from './CourseInfoBanner';
 
 const CourseHeader = () => {
   return (
     <div className="mb-4">
-      {/* Progress stepper */}
-      <ProgressStepper steps={setupSteps} currentStep={currentSetupStep} />
+      {/* Course information banner */}
+      <CourseInfoBanner />
       
       {/* Page title and instructions */}
       <div className="mb-4">

@@ -1,6 +1,14 @@
-
 import { CourseWeek } from '@/types/course';
 import { ToolboxItem } from '@/components/WeekModule';
+
+// Course information
+export const courseInfo = {
+  title: "Managerial Accounting",
+  section: "02A",
+  location: "Business Building, Room 205",
+  startDate: new Date(2025, 5, 12), // June 12, 2025
+  endDate: new Date(2025, 6, 7),    // July 7, 2025
+};
 
 // Course weeks data
 export const courseWeeks: CourseWeek[] = [
