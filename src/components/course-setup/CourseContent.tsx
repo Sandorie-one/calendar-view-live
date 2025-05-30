@@ -5,7 +5,6 @@ import GenericWeekModule from '@/components/course-setup/GenericWeekModule';
 import CourseToolbox from '@/components/CourseToolbox';
 import { CourseWeek, CourseStructureType } from '@/types/course';
 import { ToolboxItem } from '@/components/WeekModule';
-import CourseStructureSelector from '@/components/course-setup/CourseStructureSelector';
 
 interface CourseContentProps {
   courseWeeks: CourseWeek[];
@@ -36,11 +35,6 @@ const CourseContent: React.FC<CourseContentProps> = ({
 }) => {
   return (
     <div className="flex flex-col">
-      <CourseStructureSelector 
-        selectedStructure={courseStructure} 
-        onStructureChange={onStructureChange} 
-      />
-      
       <div className="flex gap-4 relative">
         {/* Left column: Course weeks */}
         <div className="w-3/4">
