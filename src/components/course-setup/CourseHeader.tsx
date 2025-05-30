@@ -9,7 +9,7 @@ const CourseHeader = () => {
       <CourseInfoBanner />
       
       {/* Page title and instructions */}
-      <div className="mb-4">
+      <div className="mb-4 mt-6">
         <h1 className="text-2xl font-semibold text-nav-font mb-2 font-plus-jakarta">
           Let's set up the structure of your course
         </h1>
