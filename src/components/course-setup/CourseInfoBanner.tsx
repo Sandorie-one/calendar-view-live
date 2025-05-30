@@ -17,7 +17,7 @@ const CourseInfoBanner = () => {
   };
 
   return (
-    <div className="bg-nav-bg -mx-4 px-4 py-6">
+    <div className="bg-nav-bg -mx-4 px-4 pt-4 pb-6">
       <div className="text-center">
         <div className="space-y-1">
           <p className="text-nav-font font-plus-jakarta text-base">

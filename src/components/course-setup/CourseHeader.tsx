@@ -4,7 +4,7 @@ import CourseInfoBanner from './CourseInfoBanner';
 
 const CourseHeader = () => {
   return (
-    <div className="mb-4">
+    <div className="mb-4 -mt-4">
       {/* Course information banner */}
       <CourseInfoBanner />
       
