@@ -60,14 +60,14 @@ const WeekModule: React.FC<WeekModuleProps> = ({
   };
 
   return (
-    <Card className={`mb-6 week-module-${weekNumber}`}>
+    <Card className={`mb-4 week-module-${weekNumber}`}>
       <CardHeader className="pb-2">
         <div className="flex justify-between">
           <div>
-            <CardTitle className="text-xl font-bold">
+            <CardTitle className="text-base font-semibold font-plus-jakarta">
               Week {weekNumber}: {formatDate(startDate)} - {formatDate(endDate)}
             </CardTitle>
-            <div className="text-sm text-gray-600 mt-1">
+            <div className="text-sm text-gray-600 mt-1 font-plus-jakarta">
               <span className="font-semibold">Book Chapters:</span> {chapters.join(", ")}
             </div>
           </div>
@@ -75,8 +75,8 @@ const WeekModule: React.FC<WeekModuleProps> = ({
       </CardHeader>
       <CardContent>
         <div className="mb-4">
-          <h3 className="text-sm font-semibold mb-2">Learning Objectives:</h3>
-          <ul className="list-disc pl-5 text-sm">
+          <h3 className="text-sm font-semibold mb-2 font-plus-jakarta">Learning Objectives:</h3>
+          <ul className="list-disc pl-5 text-sm font-plus-jakarta">
             {learningObjectives.map((objective, index) => (
               <li key={index}>{objective}</li>
             ))}

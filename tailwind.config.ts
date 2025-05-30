@@ -37,6 +37,16 @@ export default {
 					red: '#F44336',
 					yellow: '#FFEB3B',
 				},
+				// New design system colors
+				'nav-bg': '#F6F5FB',
+				'main-bg': '#EDECF6',
+				'card-bg': '#FFFFFF',
+				'item-bg': '#F6F5FB',
+				'nav-font': '#0D004D',
+				'primary-cta': '#FFCE00',
+				'secondary-cta': '#512EAB',
+				'accent-cyan': '#56E2E1',
+				'accent-magenta': '#DF41CF',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -76,10 +86,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+				'plus-jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: '4px',
+				md: '4px',
+				sm: '4px',
+				'cta': '30px'
 			},
 			keyframes: {
 				'accordion-down': {

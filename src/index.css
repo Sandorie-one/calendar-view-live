@@ -52,7 +52,7 @@
   }
 
   body {
-    @apply bg-slate-50 text-foreground;
+    @apply bg-main-bg text-foreground font-plus-jakarta;
   }
 }
 
@@ -75,17 +75,21 @@
 
 /* Week module accent colors */
 .week-module-1 {
-  border-left: 4px solid theme('colors.pearson.blue');
+  border-left: 4px solid #56E2E1;
 }
 
 .week-module-2 {
-  border-left: 4px solid theme('colors.pearson.magenta');
+  border-left: 4px solid #DF41CF;
 }
 
 .week-module-3 {
-  border-left: 4px solid theme('colors.pearson.teal');
+  border-left: 4px solid #FFCE00;
 }
 
 .week-module-4 {
-  border-left: 4px solid theme('colors.pearson.green');
+  border-left: 4px solid #512EAB;
+}
+
+.generic-week-module {
+  border-left: 4px solid #56E2E1;
 }

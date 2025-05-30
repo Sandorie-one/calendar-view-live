@@ -41,10 +41,12 @@ const CourseContent: React.FC<CourseContentProps> = ({
         onStructureChange={onStructureChange} 
       />
       
-      <div className="flex gap-6 relative">
+      <div className="flex gap-4 relative">
         {/* Left column: Course weeks */}
         <div className="w-3/4">
-          <h2 className="text-xl font-bold mb-4 text-pearson-purple">George's Chemistry 101 Course</h2>
+          <h2 className="text-xl font-semibold mb-4 text-nav-font font-plus-jakarta">
+            George's Chemistry 101 Course
+          </h2>
           
           {courseStructure === 'different' ? (
             courseWeeks.map((week) => (
@@ -71,7 +73,7 @@ const CourseContent: React.FC<CourseContentProps> = ({
           )}
         </div>
         
-        {/* Right column: Course toolbox or trash bin - Now with sticky positioning aligned to first week */}
+        {/* Right column: Course toolbox or trash bin */}
         <div className="w-1/4 sticky self-start" style={{ top: '9.5rem' }}>
           <CourseToolbox 
             toolboxItems={toolboxItems} 

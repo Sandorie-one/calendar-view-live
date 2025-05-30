@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ToolboxItem } from '@/components/WeekModule';
@@ -77,11 +76,11 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Lectures':
-        return 'text-pearson-blue';
+        return 'text-accent-cyan';
       case 'Assigned Work':
-        return 'text-pearson-magenta';
+        return 'text-accent-magenta';
       case 'Assessments':
-        return 'text-pearson-teal';
+        return 'text-secondary-cta';
       default:
         return 'text-gray-700';
     }
@@ -99,7 +98,7 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
           <Trash 
             className={`h-16 w-16 ${isTrashActive ? 'text-red-500' : 'text-gray-400'}`} 
           />
-          <p className={`mt-4 font-medium ${isTrashActive ? 'text-red-500' : 'text-gray-600'}`}>
+          <p className={`mt-4 font-medium font-plus-jakarta ${isTrashActive ? 'text-red-500' : 'text-gray-600'}`}>
             Drop here to remove
           </p>
         </CardContent>
@@ -110,24 +109,26 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
   return (
     <Card>
       <CardHeader className="pb-2">
-        <CardTitle>Course Toolbox</CardTitle>
-        <p className="text-sm text-gray-600">Drag your course items into the calendar to define your course's structure</p>
+        <CardTitle className="font-plus-jakarta">Course Toolbox</CardTitle>
+        <p className="text-sm text-gray-600 font-plus-jakarta">
+          Drag your course items into the calendar to define your course's structure
+        </p>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {Object.entries(groupedItems).map(([category, items]) => (
             <div key={category} className="space-y-2">
-              <h3 className={`text-sm font-medium ${getCategoryColor(category)}`}>{category}</h3>
+              <h3 className={`text-sm font-medium font-plus-jakarta ${getCategoryColor(category)}`}>{category}</h3>
               <div className="space-y-2">
                 {items.map(item => (
                   <div
                     key={item.id}
-                    className="flex items-center p-2 rounded-md border border-gray-200 hover:bg-gray-50 draggable cursor-pointer"
+                    className="flex items-center p-2 rounded bg-item-bg border border-gray-200 hover:bg-gray-50 draggable cursor-pointer"
                     draggable
                     onDragStart={(e) => handleDragStart(e, item)}
                   >
                     {getIcon(item.type)}
-                    <span>{item.title}</span>
+                    <span className="font-plus-jakarta text-sm">{item.title}</span>
                   </div>
                 ))}
               </div>

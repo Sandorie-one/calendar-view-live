@@ -19,8 +19,10 @@ const CourseStructureSelector: React.FC<CourseStructureSelectorProps> = ({
   };
 
   return (
-    <div className="mb-6">
-      <h2 className="text-lg font-medium mb-3 text-pearson-purple">How is your course structured?</h2>
+    <div className="mb-4">
+      <h2 className="text-base font-medium mb-3 text-nav-font font-plus-jakarta">
+        How is your course structured?
+      </h2>
       <ToggleGroup 
         type="single" 
         value={selectedStructure}
@@ -29,13 +31,13 @@ const CourseStructureSelector: React.FC<CourseStructureSelectorProps> = ({
       >
         <ToggleGroupItem 
           value="different" 
-          className="border border-gray-300 px-6 py-4 data-[state=on]:bg-pearson-purple data-[state=on]:text-white"
+          className="border border-gray-300 px-4 py-2 data-[state=on]:bg-secondary-cta data-[state=on]:text-white font-plus-jakarta text-sm bg-card-bg"
         >
           I have a different structure each week
         </ToggleGroupItem>
         <ToggleGroupItem 
           value="same" 
-          className="border border-gray-300 px-6 py-4 data-[state=on]:bg-pearson-purple data-[state=on]:text-white"
+          className="border border-gray-300 px-4 py-2 data-[state=on]:bg-secondary-cta data-[state=on]:text-white font-plus-jakarta text-sm bg-card-bg"
         >
           I use the same weekly structure in my course
         </ToggleGroupItem>

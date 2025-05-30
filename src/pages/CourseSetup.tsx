@@ -34,7 +34,7 @@ const CourseSetup = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <div className="container px-6 py-8 flex-1">
+      <div className="container px-4 py-4 flex-1">
         <CourseHeader />
         
         <CourseContent

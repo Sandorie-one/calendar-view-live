@@ -11,7 +11,7 @@ interface CalendarDayProps {
   onDrop: (item: ToolboxItem) => void;
   onItemDragStart: (item: ToolboxItem) => void;
   onItemRemove: (itemId: string) => void;
-  showDate?: boolean; // Optional prop to show/hide date
+  showDate?: boolean;
 }
 
 const CalendarDay: React.FC<CalendarDayProps> = ({ 
@@ -21,7 +21,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
   onDrop, 
   onItemDragStart, 
   onItemRemove,
-  showDate = true // Default to showing date
+  showDate = true
 }) => {
   const [isActive, setIsActive] = React.useState(false);
   
@@ -81,31 +81,23 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
   return (
     <div
       className={cn(
-        'p-2 rounded-md border border-gray-200 bg-white min-h-24 droppable',
+        'p-2 rounded bg-card-bg border border-gray-200 min-h-24 droppable',
         isActive && 'active'
       )}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
     >
-      <div className="text-xs font-medium">{day}</div>
-      {showDate && <div className="text-xs text-gray-500 mb-2">{formatDate(date)}</div>}
+      <div className="text-xs font-medium font-plus-jakarta">{day}</div>
+      {showDate && <div className="text-xs text-gray-500 mb-2 font-plus-jakarta">{formatDate(date)}</div>}
       
       <div className="space-y-1">
         {items.map((item, index) => (
           <div 
             key={`${item.id}-${index}`} 
-            className="text-xs p-1 rounded bg-opacity-10 flex items-center gap-1 cursor-grab"
+            className="text-xs p-2 rounded bg-item-bg flex items-center gap-1 cursor-grab font-plus-jakarta"
             draggable
             onDragStart={(e) => handleItemDragStart(e, item)}
-            style={{
-              backgroundColor: 
-                item.category === 'Lectures' 
-                  ? 'rgba(62, 141, 221, 0.2)' 
-                  : item.category === 'Assigned Work' 
-                    ? 'rgba(155, 38, 182, 0.2)' 
-                    : 'rgba(55, 177, 191, 0.2)'
-            }}
           >
             {getIcon(item.type)}
             <span>{item.title}</span>
