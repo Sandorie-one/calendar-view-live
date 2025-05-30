@@ -39,7 +39,7 @@ const CourseContent: React.FC<CourseContentProps> = ({
         {/* Left column: Course weeks */}
         <div className="w-3/4">
           <h2 className="text-xl font-semibold mb-4 text-nav-font font-plus-jakarta">
-            George's Chemistry 101 Course
+            &nbsp;
           </h2>
           
           {courseStructure === 'different' ? (
