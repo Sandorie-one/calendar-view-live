@@ -1,13 +1,13 @@
-
 import { useState } from 'react';
 import { toast } from "@/components/ui/use-toast";
 import { ToolboxItem } from '@/components/WeekModule';
 import { SavedItemsState, DragSourceState } from '@/types/course';
 import { daysOfWeek } from '@/data/courseData';
+import { createInitialSchedule } from '@/data/initialSchedule';
 
 export function useCourseCalendar() {
-  // State for items in calendar days
-  const [savedItems, setSavedItems] = useState<SavedItemsState>({});
+  // State for items in calendar days - initialize with syllabus schedule
+  const [savedItems, setSavedItems] = useState<SavedItemsState>(createInitialSchedule());
   // State for dragging calendar item
   const [isDraggingItem, setIsDraggingItem] = useState(false);
   // State for dragged item source location
