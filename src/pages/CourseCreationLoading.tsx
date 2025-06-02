@@ -295,7 +295,8 @@ const CourseCreationLoading = () => {
         )}
       </div>
 
-      <style jsx>{`
+      {/* CSS for confetti animation */}
+      <style>{`
         @keyframes confetti-fall {
           0% {
             transform: translateY(-10px) rotate(0deg);
