@@ -1,8 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { ToolboxItem } from '@/components/WeekModule';
-import { BookOpen, Video, BookText, PenTool, FileCheck, School, GraduationCap, Trash, ClipboardList, PlayCircle, ClipboardCheck, FileText, Award, Brain, Sparkles } from 'lucide-react';
+import { BookOpen, Video, BookText, PenTool, FileCheck, School, GraduationCap, Trash, ClipboardList, PlayCircle, ClipboardCheck, FileText, Award, Brain } from 'lucide-react';
 
 interface CourseToolboxProps {
   toolboxItems: ToolboxItem[];
@@ -34,12 +34,7 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
       case 'Video Assignment':
         return <PlayCircle className="h-5 w-5 mr-2" />;
       case 'Structured Study':
-        return (
-          <div className="relative mr-2">
-            <Brain className="h-5 w-5" />
-            <Sparkles className="h-2 w-2 absolute -top-1 -right-1 text-accent-cyan animate-pulse" />
-          </div>
-        );
+        return <Brain className="h-5 w-5 mr-2" />;
       case 'Quiz':
         return <School className="h-5 w-5 mr-2" />;
       case 'DSM Quiz':
@@ -141,26 +136,12 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
                 {items.map(item => (
                   <div
                     key={item.id}
-                    className={`flex items-center p-2 rounded border hover:bg-gray-50 draggable cursor-pointer relative ${
-                      item.type === 'Structured Study' 
-                        ? 'bg-gradient-to-r from-accent-cyan/10 to-accent-magenta/10 border-accent-cyan/30 animate-pulse' 
-                        : 'bg-item-bg border-gray-200'
-                    }`}
+                    className="flex items-center p-2 rounded bg-item-bg border border-gray-200 hover:bg-gray-50 draggable cursor-pointer"
                     draggable
                     onDragStart={(e) => handleDragStart(e, item)}
                   >
                     {getIcon(item.type)}
-                    <span className="font-plus-jakarta text-sm flex-1">{item.title}</span>
-                    {item.type === 'Structured Study' && (
-                      <div className="flex gap-1 ml-2">
-                        <Badge variant="secondary" className="text-xs px-1.5 py-0.5 bg-primary-cta text-black font-medium">
-                          NEW
-                        </Badge>
-                        <Badge variant="secondary" className="text-xs px-1.5 py-0.5 bg-accent-cyan text-black font-medium">
-                          AI
-                        </Badge>
-                      </div>
-                    )}
+                    <span className="font-plus-jakarta text-sm">{item.title}</span>
                   </div>
                 ))}
               </div>
