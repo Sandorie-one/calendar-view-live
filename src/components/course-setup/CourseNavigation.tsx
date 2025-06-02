@@ -10,7 +10,7 @@ const CourseNavigation = () => {
         <ChevronLeft size={16} className="mr-2" /> Previous: Upload Syllabus
       </Button>
       <Button variant="secondary" className="flex items-center">
-        Next: Define Exams <ChevronRight size={16} className="ml-2" />
+        Next: Create course <ChevronRight size={16} className="ml-2" />
       </Button>
     </div>
   );
