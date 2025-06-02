@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ToolboxItem } from '@/components/WeekModule';
-import { BookOpen, Video, BookText, PenTool, FileCheck, School, GraduationCap, Trash, ClipboardList, PlayCircle, ClipboardCheck, FileText, Award } from 'lucide-react';
+import { BookOpen, Video, BookText, PenTool, FileCheck, School, GraduationCap, Trash, ClipboardList, PlayCircle, ClipboardCheck, FileText, Award, Brain } from 'lucide-react';
 
 interface CourseToolboxProps {
   toolboxItems: ToolboxItem[];
@@ -32,6 +33,8 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
         return <ClipboardList className="h-5 w-5 mr-2" />;
       case 'Video Assignment':
         return <PlayCircle className="h-5 w-5 mr-2" />;
+      case 'Structured Study':
+        return <Brain className="h-5 w-5 mr-2" />;
       case 'Quiz':
         return <School className="h-5 w-5 mr-2" />;
       case 'DSM Quiz':

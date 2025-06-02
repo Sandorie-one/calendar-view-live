@@ -1,7 +1,7 @@
 import React from 'react';
 import { ToolboxItem } from '@/components/WeekModule';
 import { cn } from '@/lib/utils';
-import { BookOpen, Video, BookText, PenTool, FileCheck, School, GraduationCap, ClipboardList, PlayCircle, ClipboardCheck, FileText, Award } from 'lucide-react';
+import { BookOpen, Video, BookText, PenTool, FileCheck, School, GraduationCap, ClipboardList, PlayCircle, ClipboardCheck, FileText, Award, Brain } from 'lucide-react';
 
 interface CalendarDayProps {
   day: string;
@@ -72,6 +72,8 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         return <ClipboardList className="h-4 w-4" />;
       case 'Video Assignment':
         return <PlayCircle className="h-4 w-4" />;
+      case 'Structured Study':
+        return <Brain className="h-4 w-4" />;
       case 'Quiz':
         return <School className="h-4 w-4" />;
       case 'DSM Quiz':

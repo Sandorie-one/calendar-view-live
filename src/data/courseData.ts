@@ -192,6 +192,7 @@ export const toolboxItems: ToolboxItem[] = [
   { id: 'work-3', type: 'Project', category: 'Assigned Work', title: 'Project', icon: 'file-check' },
   { id: 'work-4', type: 'Practice Set', category: 'Assigned Work', title: 'Practice Set', icon: 'clipboard-list' },
   { id: 'work-5', type: 'Video Assignment', category: 'Assigned Work', title: 'Video Assignment', icon: 'play-circle' },
+  { id: 'work-6', type: 'Structured Study', category: 'Assigned Work', title: 'Structured Study', icon: 'brain' },
   { id: 'assess-1', type: 'Quiz', category: 'Assessments', title: 'Quiz', icon: 'school' },
   { id: 'assess-2', type: 'DSM Quiz', category: 'Assessments', title: 'DSM Quiz', icon: 'clipboard-check' },
   { id: 'assess-3', type: 'Exam', category: 'Assessments', title: 'Exam', icon: 'graduation-cap' },
