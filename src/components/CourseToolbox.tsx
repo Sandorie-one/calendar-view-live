@@ -34,7 +34,7 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
       case 'Video Assignment':
         return <PlayCircle className="h-5 w-5 mr-2" />;
       case 'Structured Study':
-        return <Brain className="h-5 w-5 mr-2" />;
+        return <Brain className="h-5 w-5 mr-2 text-secondary-cta drop-shadow-sm" />;
       case 'Quiz':
         return <School className="h-5 w-5 mr-2" />;
       case 'DSM Quiz':
@@ -99,6 +99,20 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
     }
   };
 
+  const getItemStyling = (type: string) => {
+    if (type === 'Structured Study') {
+      return [
+        'flex items-center p-2 rounded border border-gray-200 hover:bg-gray-50 draggable cursor-pointer',
+        'bg-gradient-to-r from-purple-50 to-white',
+        'shadow-[0_0_0_1px_#512EAB] hover:shadow-[0_0_0_2px_#9B87F5]',
+        'transition-all duration-300 ease-in-out',
+        'hover:scale-105',
+        'animate-pulse'
+      ].join(' ');
+    }
+    return 'flex items-center p-2 rounded bg-item-bg border border-gray-200 hover:bg-gray-50 draggable cursor-pointer';
+  };
+
   if (isDraggingItem) {
     return (
       <Card
@@ -136,12 +150,14 @@ const CourseToolbox: React.FC<CourseToolboxProps> = ({
                 {items.map(item => (
                   <div
                     key={item.id}
-                    className="flex items-center p-2 rounded bg-item-bg border border-gray-200 hover:bg-gray-50 draggable cursor-pointer"
+                    className={getItemStyling(item.type)}
                     draggable
                     onDragStart={(e) => handleDragStart(e, item)}
                   >
                     {getIcon(item.type)}
-                    <span className="font-plus-jakarta text-sm">{item.title}</span>
+                    <span className={`font-plus-jakarta text-sm ${item.type === 'Structured Study' ? 'text-secondary-cta font-medium' : ''}`}>
+                      {item.title}
+                    </span>
                   </div>
                 ))}
               </div>

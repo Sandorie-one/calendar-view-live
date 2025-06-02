@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ToolboxItem } from '@/components/WeekModule';
 import { cn } from '@/lib/utils';
@@ -73,7 +74,7 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       case 'Video Assignment':
         return <PlayCircle className="h-4 w-4" />;
       case 'Structured Study':
-        return <Brain className="h-4 w-4" />;
+        return <Brain className="h-4 w-4 text-secondary-cta drop-shadow-sm" />;
       case 'Quiz':
         return <School className="h-4 w-4" />;
       case 'DSM Quiz':
@@ -87,6 +88,21 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       default:
         return null;
     }
+  };
+
+  const getItemStyling = (type: string) => {
+    if (type === 'Structured Study') {
+      return cn(
+        'text-xs p-2 rounded flex items-center gap-1 cursor-grab font-plus-jakarta',
+        'bg-gradient-to-r from-purple-50 to-white',
+        'border-2 border-transparent bg-clip-padding',
+        'shadow-[0_0_0_1px_#512EAB] hover:shadow-[0_0_0_2px_#9B87F5]',
+        'transition-all duration-300 ease-in-out',
+        'hover:scale-105 hover:shadow-lg',
+        'animate-pulse'
+      );
+    }
+    return 'text-xs p-2 rounded bg-item-bg flex items-center gap-1 cursor-grab font-plus-jakarta';
   };
 
   return (
@@ -106,12 +122,14 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         {items.map((item, index) => (
           <div 
             key={`${item.id}-${index}`} 
-            className="text-xs p-2 rounded bg-item-bg flex items-center gap-1 cursor-grab font-plus-jakarta"
+            className={getItemStyling(item.type)}
             draggable
             onDragStart={(e) => handleItemDragStart(e, item)}
           >
             {getIcon(item.type)}
-            <span>{item.title}</span>
+            <span className={item.type === 'Structured Study' ? 'text-secondary-cta font-medium' : ''}>
+              {item.title}
+            </span>
           </div>
         ))}
       </div>
